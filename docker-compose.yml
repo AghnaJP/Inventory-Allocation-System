@@ -17,8 +17,8 @@ services:
   backend:
     build: ./backend                    
     volumes:
-      - ./backend:/app                  
-      - /app/node_modules               
+      - ./backend:/app
+      - backend_node_modules:/app/node_modules
     ports:
       - "8000:8000"                     
     environment:
@@ -32,21 +32,23 @@ services:
           memory: 512M                  
 
   frontend:
-    build: ./frontend                   
+    build: ./frontend
     ports:
-      - "3000:3000"                     
+      - "3000:3000"
     volumes:
-      - ./frontend:/app:delegated       
-      - /app/node_modules               
-      - /app/.next                      
+      - ./frontend:/app:delegated
+      - frontend_node_modules:/app/node_modules
+      - /app/.next
     environment:
-      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL} 
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
     depends_on:
-      - backend                         
+      - backend                     
     deploy:
       resources:
         limits:
           memory: 1G                    
       
 volumes:
-  postgres_data:                        
+  postgres_data:
+  backend_node_modules:
+  frontend_node_modules:

@@ -1,0 +1,28 @@
+# Dependency folders
+**/node_modules/
+
+# Build outputs
+frontend/.next/
+frontend/out/
+frontend/build/
+backend/dist/
+backend/build/
+
+# Vercel
+frontend/.vercel
+
+# TypeScript build info
+frontend/*.tsbuildinfo
+
+# Logs
+backend/*.log
+yarn-error.log*
+npm-debug.log*
+
+# Docker / database
+.docker/
+postgres_data/
+
+# Test coverage
+**/coverage/
+.nyc_output/
