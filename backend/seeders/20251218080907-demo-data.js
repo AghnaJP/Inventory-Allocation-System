@@ -127,7 +127,7 @@ module.exports = {
 					createdAt: new Date(),
 					updatedAt: new Date(),
 				},
-				// Distribution Center stocks
+				// Third Warehouse stocks
 				{
 					warehouse_id: 3,
 					product_id: 1,
