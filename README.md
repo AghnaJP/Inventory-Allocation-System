@@ -101,17 +101,15 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-Sure! Here’s the **Design Decisions README** in ready-to-copy **Markdown** format:
 
-```markdown
 # Design Decisions
 
 ## 1. Project Architecture
 
 The project follows a **modular monolith** pattern, where each service has its own module containing:
 ```
-
 src/
 └─ v1/
 └─ service-name/
@@ -121,7 +119,6 @@ src/
 │ └─ service-name.service.ts
 └─ model/
 └─ service-name.model.ts
-
 ```
 
 ### Why Modular Monolith?
@@ -248,11 +245,6 @@ Although the app is a **modular monolith**, horizontal scaling is possible:
 - **Microservices migration:** Individual modules can be extracted as standalone services once traffic or complexity increases.
 - **Event-driven communication:** For scaling services without tight coupling, consider adding message queues (e.g., RabbitMQ or Kafka or EventEmitter EventBus node-built-in).
 - **Monitoring & Metrics:** Integrate NewRelic, Prometheus, Grafana, or ELK stack for observability.
-
-```
-
----
-```
 
 # Possible improvements
 
