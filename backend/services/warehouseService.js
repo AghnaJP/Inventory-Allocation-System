@@ -1,11 +1,12 @@
-const { Warehouse } = require('../models');
+import db from '../models/index.js';
+const { Warehouse } = db;
 
 const warehouseService = {
-	async getAllWarehouses() {
-		return await Warehouse.findAll({
-			order: [['id', 'ASC']],
-		});
-	},
+  async getAllWarehouses() {
+    return await Warehouse.findAll({
+      order: [['id', 'ASC']],
+    });
+  },
 };
 
-module.exports = warehouseService;
+export default warehouseService;

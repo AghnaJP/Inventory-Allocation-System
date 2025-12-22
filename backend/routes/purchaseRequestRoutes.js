@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import purchaseRequestController from '../controllers/purchaseRequestController.js';
+
 const router = express.Router();
-const purchaseRequestController = require('../controllers/purchaseRequestController');
 
 // GET /api/purchase-requests - list all purchase requests
 router.get('/', purchaseRequestController.getAllPurchaseRequests);
@@ -17,4 +18,4 @@ router.put('/:id', purchaseRequestController.updatePurchaseRequest);
 // DELETE /api/purchase-requests/:id - delete purchase request
 router.delete('/:id', purchaseRequestController.deletePurchaseRequest);
 
-module.exports = router;
+export default router;

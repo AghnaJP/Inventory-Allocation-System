@@ -2,21 +2,21 @@
 import { Model } from 'sequelize';
 
 export default (sequelize, DataTypes) => {
-  class Stock extends Model {
+  class PurchaseRequestItem extends Model {
     static associate(models) {
-      Stock.belongsTo(models.Warehouse, {
-        foreignKey: 'warehouse_id',
-        as: 'warehouse',
+      PurchaseRequestItem.belongsTo(models.PurchaseRequest, {
+        foreignKey: 'purchase_request_id',
+        as: 'purchaseRequest',
       });
-      Stock.belongsTo(models.Product, {
+      PurchaseRequestItem.belongsTo(models.Product, {
         foreignKey: 'product_id',
         as: 'product',
       });
     }
   }
-  Stock.init(
+  PurchaseRequestItem.init(
     {
-      warehouse_id: {
+      purchase_request_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
@@ -27,13 +27,12 @@ export default (sequelize, DataTypes) => {
       quantity: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue: 0,
       },
     },
     {
       sequelize,
-      modelName: 'Stock',
+      modelName: 'PurchaseRequestItem',
     },
   );
-  return Stock;
+  return PurchaseRequestItem;
 };

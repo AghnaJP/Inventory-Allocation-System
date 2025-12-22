@@ -1,8 +1,9 @@
-const express = require('express');
+import express from 'express';
+import productController from '../controllers/productController.js';
+
 const router = express.Router();
-const productController = require('../controllers/productController');
 
 // GET /api/products - list all products with pagination & search
 router.get('/', productController.getAllProducts);
 
-module.exports = router;
+export default router;
