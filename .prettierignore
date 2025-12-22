@@ -22,6 +22,8 @@ npm-debug.log*
 # Docker / database
 .docker/
 postgres_data/
+docker-compose.yml
+docker-compose.override.yml
 
 # Test coverage
 **/coverage/
