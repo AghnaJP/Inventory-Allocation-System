@@ -1,0 +1,1052 @@
+{
+	"openapi": "3.0.0",
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"WarehouseAttributes": {
+				"properties": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"name": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"name"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PaginatedResult_WarehouseAttributes_": {
+				"properties": {
+					"data": {
+						"items": {
+							"$ref": "#/components/schemas/WarehouseAttributes"
+						},
+						"type": "array"
+					},
+					"pagination": {
+						"properties": {
+							"totalPages": {
+								"type": "number",
+								"format": "double"
+							},
+							"limit": {
+								"type": "number",
+								"format": "double"
+							},
+							"page": {
+								"type": "number",
+								"format": "double"
+							},
+							"total": {
+								"type": "number",
+								"format": "double"
+							}
+						},
+						"required": [
+							"totalPages",
+							"limit",
+							"page",
+							"total"
+						],
+						"type": "object"
+					}
+				},
+				"required": [
+					"data",
+					"pagination"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Status": {
+				"enum": [
+					"OK",
+					"ERROR",
+					"RESOURCE_NOT_FOUND",
+					"COMPLETED"
+				],
+				"type": "string"
+			},
+			"Error": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"name",
+					"message"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ProductAttributes": {
+				"properties": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"name": {
+						"type": "string"
+					},
+					"sku": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"sku"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"StockWithRelations": {
+				"properties": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"warehouse_id": {
+						"type": "number",
+						"format": "double"
+					},
+					"product_id": {
+						"type": "number",
+						"format": "double"
+					},
+					"quantity": {
+						"type": "number",
+						"format": "double"
+					},
+					"product": {
+						"$ref": "#/components/schemas/ProductAttributes"
+					},
+					"warehouse": {
+						"$ref": "#/components/schemas/WarehouseAttributes"
+					}
+				},
+				"required": [
+					"id",
+					"warehouse_id",
+					"product_id",
+					"quantity",
+					"product",
+					"warehouse"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PaginatedResult_StockWithRelations_": {
+				"properties": {
+					"data": {
+						"items": {
+							"$ref": "#/components/schemas/StockWithRelations"
+						},
+						"type": "array"
+					},
+					"pagination": {
+						"properties": {
+							"totalPages": {
+								"type": "number",
+								"format": "double"
+							},
+							"limit": {
+								"type": "number",
+								"format": "double"
+							},
+							"page": {
+								"type": "number",
+								"format": "double"
+							},
+							"total": {
+								"type": "number",
+								"format": "double"
+							}
+						},
+						"required": [
+							"totalPages",
+							"limit",
+							"page",
+							"total"
+						],
+						"type": "object"
+					}
+				},
+				"required": [
+					"data",
+					"pagination"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PurchaseRequestItemResponse": {
+				"properties": {
+					"product": {
+						"properties": {
+							"sku": {
+								"type": "string"
+							},
+							"name": {
+								"type": "string"
+							},
+							"id": {
+								"type": "number",
+								"format": "double"
+							}
+						},
+						"required": [
+							"sku",
+							"name",
+							"id"
+						],
+						"type": "object"
+					},
+					"quantity": {
+						"type": "number",
+						"format": "double"
+					},
+					"product_id": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"product",
+					"quantity",
+					"product_id"
+				],
+				"type": "object"
+			},
+			"PurchaseRequestResponse": {
+				"properties": {
+					"items": {
+						"items": {
+							"$ref": "#/components/schemas/PurchaseRequestItemResponse"
+						},
+						"type": "array"
+					},
+					"status": {
+						"type": "string"
+					},
+					"vendor": {
+						"type": "string",
+						"nullable": true
+					},
+					"reference": {
+						"type": "string"
+					},
+					"id": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"items",
+					"status",
+					"vendor",
+					"reference",
+					"id"
+				],
+				"type": "object"
+			},
+			"PaginatedResult_PurchaseRequestResponse_": {
+				"properties": {
+					"data": {
+						"items": {
+							"$ref": "#/components/schemas/PurchaseRequestResponse"
+						},
+						"type": "array"
+					},
+					"pagination": {
+						"properties": {
+							"totalPages": {
+								"type": "number",
+								"format": "double"
+							},
+							"limit": {
+								"type": "number",
+								"format": "double"
+							},
+							"page": {
+								"type": "number",
+								"format": "double"
+							},
+							"total": {
+								"type": "number",
+								"format": "double"
+							}
+						},
+						"required": [
+							"totalPages",
+							"limit",
+							"page",
+							"total"
+						],
+						"type": "object"
+					}
+				},
+				"required": [
+					"data",
+					"pagination"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PurchaseRequestItemInput": {
+				"properties": {
+					"product_id": {
+						"type": "number",
+						"format": "double"
+					},
+					"quantity": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"product_id",
+					"quantity"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreatePurchaseRequestDTO": {
+				"properties": {
+					"warehouse_id": {
+						"type": "number",
+						"format": "double"
+					},
+					"vendor": {
+						"type": "string",
+						"nullable": true
+					},
+					"items": {
+						"items": {
+							"$ref": "#/components/schemas/PurchaseRequestItemInput"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"warehouse_id"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UpdatePurchaseRequestDTO": {
+				"properties": {
+					"warehouse_id": {
+						"type": "number",
+						"format": "double"
+					},
+					"vendor": {
+						"type": "string",
+						"nullable": true
+					},
+					"status": {
+						"type": "string",
+						"enum": [
+							"DRAFT",
+							"PENDING",
+							"APPROVED",
+							"REJECTED"
+						]
+					},
+					"items": {
+						"items": {
+							"$ref": "#/components/schemas/PurchaseRequestItemInput"
+						},
+						"type": "array"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PaginatedResult_ProductAttributes_": {
+				"properties": {
+					"data": {
+						"items": {
+							"$ref": "#/components/schemas/ProductAttributes"
+						},
+						"type": "array"
+					},
+					"pagination": {
+						"properties": {
+							"totalPages": {
+								"type": "number",
+								"format": "double"
+							},
+							"limit": {
+								"type": "number",
+								"format": "double"
+							},
+							"page": {
+								"type": "number",
+								"format": "double"
+							},
+							"total": {
+								"type": "number",
+								"format": "double"
+							}
+						},
+						"required": [
+							"totalPages",
+							"limit",
+							"page",
+							"total"
+						],
+						"type": "object"
+					}
+				},
+				"required": [
+					"data",
+					"pagination"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"TStatusProgression": {
+				"type": "string",
+				"enum": [
+					"DRAFT",
+					"PENDING",
+					"COMPLETED",
+					"REJECTED"
+				]
+			},
+			"WebhookResponse": {
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"reference": {
+						"type": "string"
+					},
+					"status": {
+						"anyOf": [
+							{
+								"$ref": "#/components/schemas/TStatusProgression"
+							},
+							{
+								"type": "string"
+							}
+						]
+					},
+					"type": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"message",
+					"reference"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"WebhookDetail": {
+				"properties": {
+					"sku_barcode": {
+						"type": "string"
+					},
+					"qty": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"sku_barcode",
+					"qty"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"WebhookPayload": {
+				"properties": {
+					"reference": {
+						"type": "string"
+					},
+					"status_request": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"event_type": {
+						"type": "string"
+					},
+					"details": {
+						"items": {
+							"$ref": "#/components/schemas/WebhookDetail"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"reference"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "backend",
+		"version": "1.0.0",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {
+			"name": "Aghna Jaya Pranada"
+		}
+	},
+	"paths": {
+		"/v1/warehouses": {
+			"get": {
+				"operationId": "GetAllWarehouses",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"$ref": "#/components/schemas/PaginatedResult_WarehouseAttributes_"
+										},
+										{
+											"properties": {
+												"message": {
+													"type": "string"
+												},
+												"status": {
+													"$ref": "#/components/schemas/Status"
+												}
+											},
+											"required": [
+												"message",
+												"status"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get all warehouses with pagination and search",
+				"tags": [
+					"Warehouse"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"required": false,
+						"schema": {
+							"default": 1,
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"required": false,
+						"schema": {
+							"default": 10,
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "search",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/v1/stocks": {
+			"get": {
+				"operationId": "GetAllStocks",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/PaginatedResult_StockWithRelations_"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get all stocks with optional search and pagination",
+				"tags": [
+					"Stock"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"required": false,
+						"schema": {
+							"default": 1,
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"required": false,
+						"schema": {
+							"default": 10,
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "search",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/v1/purchase-requests": {
+			"get": {
+				"operationId": "GetAll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/PaginatedResult_PurchaseRequestResponse_"
+								}
+							}
+						}
+					}
+				},
+				"description": "GET /purchase-requests",
+				"tags": [
+					"Purchase Requests"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "search",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "Create",
+				"responses": {
+					"201": {
+						"description": "Created",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"$ref": "#/components/schemas/PurchaseRequestResponse"
+										},
+										{
+											"properties": {
+												"id": {
+													"type": "string"
+												},
+												"message": {
+													"type": "string"
+												},
+												"status": {
+													"$ref": "#/components/schemas/Status"
+												}
+											},
+											"required": [
+												"message",
+												"status"
+											],
+											"type": "object"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				},
+				"description": "POST /purchase-requests",
+				"tags": [
+					"Purchase Requests"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CreatePurchaseRequestDTO"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/v1/purchase-requests/{id}": {
+			"get": {
+				"operationId": "GetById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"$ref": "#/components/schemas/PurchaseRequestResponse"
+										},
+										{
+											"properties": {
+												"message": {
+													"type": "string"
+												},
+												"status": {
+													"$ref": "#/components/schemas/Status"
+												}
+											},
+											"required": [
+												"message",
+												"status"
+											],
+											"type": "object"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"description": "GET /purchase-requests/{id}",
+				"tags": [
+					"Purchase Requests"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "Update",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"$ref": "#/components/schemas/PurchaseRequestResponse"
+										},
+										{
+											"properties": {
+												"message": {
+													"type": "string"
+												},
+												"status": {
+													"$ref": "#/components/schemas/Status"
+												}
+											},
+											"required": [
+												"message",
+												"status"
+											],
+											"type": "object"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"description": "PUT /purchase-requests/{id}",
+				"tags": [
+					"Purchase Requests"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdatePurchaseRequestDTO"
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "Delete",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										},
+										"status": {
+											"$ref": "#/components/schemas/Status"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "DELETE /purchase-requests/{id}",
+				"tags": [
+					"Purchase Requests"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/v1/products": {
+			"get": {
+				"operationId": "GetAllProducts",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/PaginatedResult_ProductAttributes_"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				},
+				"description": "Get all products with pagination and optional search",
+				"tags": [
+					"Product"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"required": false,
+						"schema": {
+							"default": 1,
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"required": false,
+						"schema": {
+							"default": 10,
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "search",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/v1/webhook/receive-stock": {
+			"post": {
+				"operationId": "ReceiveStock",
+				"responses": {
+					"200": {
+						"description": "Webhook processed successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/WebhookResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid webhook payload",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Receive stock webhook from external system.",
+				"tags": [
+					"Webhook"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/WebhookPayload"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

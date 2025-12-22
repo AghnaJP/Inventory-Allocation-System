@@ -1,10 +1,10 @@
 import api from './api';
-import { Warehouse } from '../types/warehouse';
+import { WarehouseList } from '../types/warehouse';
 import { API_ENDPOINTS } from '../constants';
 
 export const warehouseService = {
-	async getAll(): Promise<Warehouse[]> {
-		const response = await api.get(API_ENDPOINTS.WAREHOUSES);
-		return response.data;
-	},
+  async getAll(): Promise<WarehouseList> {
+    const response = await api.get(API_ENDPOINTS.WAREHOUSES);
+    return response.data;
+  },
 };
